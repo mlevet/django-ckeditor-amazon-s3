@@ -87,7 +87,7 @@ class CKEditorWidget(forms.Textarea):
         self.config['filebrowserBrowseUrl'] = reverse('ckeditor_browse')
         return mark_safe(render_to_string('ckeditor/widget.html', {
             'final_attrs': flatatt(final_attrs),
-            'value': conditional_escape(force_unicode(value)),
+            'value': conditional_escape(force_text(value)),
             'id': final_attrs['id'],
             'config': json_encode(self.config)
         }))
